@@ -117,7 +117,7 @@ btnCelsius.addEventListener('click', () => {
 
 
 
-// e-mail 형식 검사 (다시 해야 됨)
+// e-mail 형식 검사 (예제의 공식이 아니라 정규식 사용함)
 
 const txtMailcheck = document.getElementById('txtMailcheck');
 const labelMailcheck = document.getElementById('labelMailcheck');
@@ -165,4 +165,41 @@ slctMulti.addEventListener('change', (e) => {
     }
 
     labelMulti.textContent = `선택: ${ list.join(', ') }`;
+});
+
+
+
+// 체크박스로 타이머 활성화하기
+
+const chkTimer = document.getElementById('chkTimer');
+const labelTimer = document.getElementById('labelTimer');
+
+let [timer, timerID] = [0, 0];
+
+chkTimer.addEventListener('change', (e) => {
+    if (e.currentTarget.checked) {
+        timerID = setInterval(() => { // timerID 변수를 interval로 만든다.
+            timer += 1; // interval이 중지되어도 기존 값을 유지한다.
+            labelTimer.textContent = `${ timer }초`;
+        }, 1000);
+    } else {
+        clearInterval(timerID); // 체크가 해제되면 timerID에 지정되었던 interval을 제거한다.
+    }
+});
+
+
+
+// 라디오 버튼
+
+const petRadios = document.querySelectorAll('[name="pets"]');
+const petLabel = document.getElementById('labelPet');
+
+petRadios.forEach((rdo) => {
+    rdo.addEventListener('change', (e) => {
+        const currentPet = e.currentTarget;
+
+        if (currentPet.checked) {
+            petLabel.textContent = `좋아하는 애완동물은 ${ currentPet.value }시군요!`;
+        }
+    });
 });

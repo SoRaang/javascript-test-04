@@ -29,6 +29,14 @@
 
         <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/f67ce84ea1.js" crossorigin="anonymous"></script>
+
+        <style>
+            body {
+                & > div {
+                    margin-block: 1rem;
+                }
+            }
+        </style>
     </head>
 
     <body>
@@ -76,6 +84,23 @@
             </select>
 
             <p id="labelMulti"></p>
+        </div>
+
+        <div>
+            <input type="checkbox" name="" id="chkTimer">
+            <span>타이머 활성화</span>
+            <h1 id="labelTimer"></h1>
+        </div>
+
+        <div>
+            <input type="radio" name="pets" id="" value="강아지"> <span>강아지</span>
+            <input type="radio" name="pets" id="" value="고양이"> <span>고양이</span>
+            <input type="radio" name="pets" id="" value="햄스터"> <span>햄스터</span>
+            <input type="radio" name="pets" id="" value="기타"> <span>기타</span>
+
+            <hr>
+
+            <h1 id="labelPet"></h1>
         </div>
 
         <script src="./assets/scripts/base.js"></script>
