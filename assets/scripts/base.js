@@ -203,3 +203,32 @@ petRadios.forEach((rdo) => {
         }
     });
 });
+
+
+
+// 기본 이벤트 막기
+
+const imgPrevent = document.getElementById('imgPrevent');
+
+imgPrevent.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+});
+
+
+
+// 체크했을 때만 링크 활성화
+
+const chkActive = document.getElementById('chkActive');
+const lnkActive = document.getElementById('lnkActive');
+
+let activeStat = false;
+
+chkActive.addEventListener('change', (e) => {
+    activeStat = e.currentTarget.checked;
+});
+
+lnkActive.addEventListener('click', (e) => {
+    if (!activeStat) {
+        e.preventDefault();
+    }
+});
